@@ -15,6 +15,7 @@ ffmpeg
     $ ffmpeg -ss [시작시간] -t [길이] -i [동영상이름] -r [프레임레이트] -s [출력해상도] -qscale:v 2 -f image2 [이미지이름]    
 
 requirements.txt
+
     $ pip install -r requirements.txt
 
 tf-pose-estimation
