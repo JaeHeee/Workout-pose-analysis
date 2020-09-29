@@ -5,7 +5,7 @@ pose estimaion을 이용한 운동 자세 분석
 ## Getting strated
 
 ### Prerequisites
-**python 3.7.6  
+**python 3.7.6**  
 **ffmpeg
 
     # ffmpeg 설치
