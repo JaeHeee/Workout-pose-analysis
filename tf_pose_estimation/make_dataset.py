@@ -72,7 +72,7 @@ def make_dataset(image_folder, model, resize, resize_out_ratio, dataset_path):
                                'Lknee_y',
                                'label'])
     
-    df.to_csv(f'{args.dataset_path}/train2.csv')
+    df.to_csv(f'{args.dataset_path}/train.csv', index=False)
 
 
 if __name__ == '__main__':
