@@ -5,8 +5,8 @@ pose estimaion을 이용한 운동 자세 분석
 ## Getting strated
 
 ### Prerequisites
-python 3.7.6  
-ffmpeg
+**python 3.7.6  
+**ffmpeg
 
     # ffmpeg 설치
     $ sudo apt install update
@@ -14,11 +14,11 @@ ffmpeg
     # frame추출
     $ ffmpeg -ss [시작시간] -t [길이] -i [동영상이름] -r [프레임레이트] -s [출력해상도] -qscale:v 2 -f image2 [이미지이름]    
 
-requirements.txt
+**requirements.txt
 
     $ pip install -r requirements.txt
 
-tf-pose-estimation
+**tf-pose-estimation
 
     # swig
 
