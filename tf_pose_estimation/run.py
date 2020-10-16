@@ -9,6 +9,11 @@ import numpy as np
 from tf_pose.estimator import TfPoseEstimator
 from tf_pose.networks import get_graph_path, model_wh
 
+###### 3d pose
+from tf_pose.lifting.prob_model import Prob3dPose
+from tf_pose.lifting.draw import plot_pose
+######
+
 logger = logging.getLogger('TfPoseEstimatorRun')
 logger.handlers.clear()
 logger.setLevel(logging.DEBUG)
@@ -52,6 +57,28 @@ if __name__ == '__main__':
 
     image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
 
+    ###### 3d pose
+    logger.info('3d lifting initialization')
+    poseLifting = Prob3dPose('/home/aiffel0046/Desktop/hackathon/tf_pose_estimation/tf_pose/lifting/models/prob_model_params.mat')
+    
+    image_h, image_w = image.shape[:2]
+    standard_w = 640
+    standard_h = 480
+
+    pose_2d_mpiis = []
+    visibilities = []
+    for human in humans:
+        pose_2d_mpii, visibility = common.MPIIPart.from_coco(human)
+        pose_2d_mpiis.append([(int(x * standard_w + 0.5), int(y * standard_h + 0.5)) for x, y in pose_2d_mpii])
+        visibilities.append(visibility)
+
+    pose_2d_mpiis = np.array(pose_2d_mpiis)
+    visibilities = np.array(visibilities)
+    transformed_pose2d, weights = poseLifting.transform_joints(pose_2d_mpiis, visibilities)
+    pose_3d = poseLifting.compute_3d(transformed_pose2d, weights)
+    
+    ######
+
     try:
         import matplotlib.pyplot as plt
 
@@ -89,7 +116,16 @@ if __name__ == '__main__':
         plt.imshow(tmp2_even, cmap=plt.cm.gray, alpha=0.5)
         plt.axis('off')
         plt.colorbar()
+        ###### 3d pose
+        for i, single_3d in enumerate(pose_3d):
+            plot_pose(single_3d)
+        ######
+
+    
         plt.show()
+    
+
+
     except Exception as e:
         logger.warning('matplitlib error, %s' % e)
         cv2.imshow('result', image)
