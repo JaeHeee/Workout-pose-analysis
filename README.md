@@ -85,18 +85,30 @@ Youtube 동영상을 이용하여 data를 수집합니다.
         # e.g. python make_dataset --image_folder ../data/train/ --dataset_path ../dataset
 
 <br>
+
+## Train
+csv file을 이용하여 모델을 train합니다.
+
 <br>
-<br>
+
 
 ## Demo
 ### Test Inference
+run.py를 실행하여 이미지에 대해서 openpose를 적용하여 test하였습니다.
+    
+        $ cd tf-pose-estimation
+        $ python run.py --image [image path]
+        # e.g. python run.py --image ../data/test.png --model mobilenet_thin
+
 ![result_1](./images/result_1.png)  
 ![result_1](./images/result_2.png)
 
-<br>
-
 ### Workout Pose Estimation
+workout.py를 실행하여 video를 재생하여 현재 동작을 확인하고 count 합니다.
 
+        $ cd tf-pose-estimation
+        $ python workout.py --video [video path]
+![stand](./images/squat_count.png)
 
 
 <br>
