@@ -41,6 +41,10 @@
     $ cd tf-pose-estimation/models/graph/cmu
     $ bash download.sh 
 
+<br>
+<br>
+<br>
+
 ## Gather Data
 Youtube 동영상을 이용하여 data를 수집합니다.
 1. yt_download.py를 실행해서 Youtube 동영상을 다운로드합니다.
@@ -51,6 +55,9 @@ Youtube 동영상을 이용하여 data를 수집합니다.
 
         $ ffmpeg -ss [시작시간] -t [길이] -i [동영상이름] -r [프레임레이트] -s [출력해상도] -qscale:v 2 -f image2 [이미지이름]    
 
+<br>
+<br>
+<br>
 
 ## Data Preprocessing
 추출한 frame 영상을 전처리한 후, tf-pose-estimation을 이용해서 필요한 관절 포인트를 추출해서 csv file로 저장합니다.
@@ -77,6 +84,24 @@ Youtube 동영상을 이용하여 data를 수집합니다.
         $ python make_dataset --image_folder [train 폴더] --dataset_path [csv file 저장위치]
         # e.g. python make_dataset --image_folder ../data/train/ --dataset_path ../dataset
 
+<br>
+<br>
+<br>
+
+## Demo
+### Test Inference
+![result_1](./images/result_1.png)  
+![result_1](./images/result_2.png)
+
+<br>
+
+### Workout Pose Estimation
+
+
+
+<br>
+<br>
+<br>
 
 ## Reference
 
