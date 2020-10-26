@@ -36,7 +36,7 @@ if __name__ == '__main__':
     e = TfPoseEstimator(get_graph_path(args.model), target_size=(w, h))
     cap = cv2.VideoCapture(args.video)
 
-    pose_model = load_model("../test.h5")
+    pose_model = load_model("../model/test.h5")
     count = 0
     position = "stand"
 
@@ -69,7 +69,6 @@ if __name__ == '__main__':
         pred = 0
         if centers.shape == (1,8):
             pred = pose_model.predict(centers)
-            print(pred, position)
             if pred <= 1e-3 and position == "stand":
                 position = "sit"
                 count += 1
