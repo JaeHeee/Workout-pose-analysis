@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     ###### 3d pose
     logger.info('3d lifting initialization')
-    poseLifting = Prob3dPose('/home/aiffel0046/Desktop/hackathon/tf_pose_estimation/tf_pose/lifting/models/prob_model_params.mat')
+    poseLifting = Prob3dPose('./tf_pose/lifting/models/prob_model_params.mat')
     
     image_h, image_w = image.shape[:2]
     standard_w = 640
