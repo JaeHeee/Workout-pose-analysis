@@ -1,6 +1,13 @@
-# Workout-pose-analysis ‍🏋🏻
+# <p align="center"> Workout-pose-analysis ‍🏋🏻</p>
 
-pose estimaion을 이용한 운동 자세 분석 
+<br>
+<br>
+
+<p align="center"> 🔆 pose estimaion을 이용한 운동 자세 분석  🔆</p>
+
+<br>
+<br>
+<br>
 
 ## Getting strated
 
@@ -69,3 +76,9 @@ Youtube 동영상을 이용하여 data를 수집합니다.
         $ cd tf-pose-estimation
         $ python make_dataset --image_folder [train 폴더] --dataset_path [csv file 저장위치]
         # e.g. python make_dataset --image_folder ../data/train/ --dataset_path ../dataset
+
+
+## Reference
+
+- tf-oepnpose : https://github.com/ildoonet/tf-pose-estimation  
+- tf-oepnpose(tensorflow 2.0): https://github.com/gsethi2409/tf-pose-estimation
